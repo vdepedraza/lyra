@@ -36,7 +36,7 @@ protobuf_deps()
 git_repository(
     name = "com_google_absl",
     remote = "https://github.com/abseil/abseil-cpp.git",
-    tag = "20211102.0",
+    tag = "20220623.1",
     # Remove after https://github.com/abseil/abseil-cpp/issues/326 is solved.
     patches = [
         "@//patches:com_google_absl_f863b622fe13612433fdf43f76547d5edda0c93001.diff"
@@ -68,9 +68,9 @@ new_git_repository(
 git_repository(
     name = "com_google_audio_dsp",
     # TODO(b/231448719) use main google repo after merging PR for TF eigen compatibility.
-    remote = "https://github.com/mchinen/multichannel-audio-tools.git",
+    remote = "https://github.com/vdepedraza/multichannel-audio-tools",
     # There are no tags for this repo, we are synced to bleeding edge.
-    commit = "14a45c5a7c965e5ef01fe537bd816ce10a247813",
+    commit = "77546d86bdac431f83ba53531fb3b7234807d683",
     repo_mapping = {
         "@com_github_glog_glog" : "@com_google_glog",
         "@eigen3": "@eigen_archive"
@@ -97,7 +97,7 @@ git_repository(
 )
 # Dependency for glog
 git_repository(
-    name = "com_github_gflags_gflags",
+    name = "gflags",
     remote = "https://github.com/mchinen/gflags.git",
     branch = "android_linking_fix"
 )
@@ -170,7 +170,13 @@ git_repository(
     remote = "https://github.com/tensorflow/tensorflow.git",
     # Below is reproducible and equivalent to `tag = "v2.11.0"`
     commit = "d5b57ca93e506df258271ea00fc29cf98383a374",
-    shallow_since = "1668561432 -0800"
+    shallow_since = "1668561432 -0800",
+    patches = [
+        "@//patches:tensorflow_fix.patch" 
+    ],
+    patch_args = [
+        "-p1",
+    ]
 )
 
 # Check bazel version requirement, which is stricter than TensorFlow's.
