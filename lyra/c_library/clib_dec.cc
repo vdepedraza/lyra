@@ -1,5 +1,3 @@
-#include "lyra/cli_example/encoder_main_lib.h"
-
 #include <algorithm>
 #include <cstdint>
 #include <fstream>

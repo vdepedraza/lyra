@@ -1,0 +1,3 @@
+rcsD
+bazel-out/k8-opt/bin/lyra/c_library/libclib_dec.a
+bazel-out/k8-opt/bin/lyra/c_library/_objs/clib_dec/clib_dec.o
