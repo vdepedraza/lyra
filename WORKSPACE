@@ -67,14 +67,20 @@ new_git_repository(
 # Audio DSP
 git_repository(
     name = "com_google_audio_dsp",
-    # TODO(b/231448719) use main google repo after merging PR for TF eigen compatibility.
-    remote = "https://github.com/vdepedraza/multichannel-audio-tools",
+
+    remote = "https://github.com/google/multichannel-audio-tools.git",
     # There are no tags for this repo, we are synced to bleeding edge.
-    commit = "77546d86bdac431f83ba53531fb3b7234807d683",
+    commit = "80892ee5252829701db4e57c9ecc3a825fa1e87c",
     repo_mapping = {
         "@com_github_glog_glog" : "@com_google_glog",
         "@eigen3": "@eigen_archive"
-    }
+    },
+    patches = [
+        "@//patches:multichannel-audio-tols_fix.patch"
+    ],
+    patch_args = [
+        "-p1",
+    ]
 )
 
 # Transitive dependencies of Audio DSP.
