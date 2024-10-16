@@ -98,7 +98,7 @@ http_archive(
 # Google logging
 git_repository(
     name = "com_google_glog",
-    remote = "https://github.com/google/glog.git",
+    remote = "https://github.com/vdepedraza/glog.git",
     branch = "master"
 )
 # Dependency for glog
@@ -202,3 +202,19 @@ load("@org_tensorflow//tensorflow:workspace2.bzl", workspace2 = "workspace")
 workspace2()
 
 # End Tensorflow WORKSPACE subset required for TFLite
+
+
+# Android stuff
+
+android_sdk_repository(
+    name = "androidsdk", # Required. Name *must* be "androidsdk".
+    path = "Android/Sdk", # Optional. Can be omitted if `ANDROID_HOME` environment variable is set.
+)
+
+android_ndk_repository(
+    name = "androidndk", # Required. Name *must* be "androidndk".
+    path = "Android/android-ndk-r21e", # Optional. Can be omitted if `ANDROID_NDK_HOME` environment variable is set.
+    api_level = 30,
+)
+
+
