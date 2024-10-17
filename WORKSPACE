@@ -213,8 +213,7 @@ android_sdk_repository(
 
 android_ndk_repository(
     name = "androidndk", # Required. Name *must* be "androidndk".
-    path = "Android/android-ndk-r21e", # Optional. Can be omitted if `ANDROID_NDK_HOME` environment variable is set.
-    api_level = 30,
+    path = "Android/Sdk/ndk/21.4.7075529", # Optional. Can be omitted if `ANDROID_NDK_HOME` environment variable is set.
 )
 
 
