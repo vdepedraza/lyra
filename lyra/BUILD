@@ -497,9 +497,10 @@ cc_binary(
         "lyra_benchmark.cc",
     ],
     linkopts = select({
-        ":android_config": ["-landroid"],
+        ":android_config": [],
         "//conditions:default": [],
     }),
+          features = ["fully_static_link"],
     deps = [
         ":lyra_benchmark_lib",
         "@com_google_absl//absl/flags:flag",

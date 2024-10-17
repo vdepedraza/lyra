@@ -112,9 +112,10 @@ cc_binary(
     ],
     data = ["//lyra:tflite_testdata"],
     linkopts = select({
-        "//lyra:android_config": ["-landroid"],
+        "//lyra:android_config": [],
         "//conditions:default": [],
     }),
+     features = ["fully_static_link"],
     deps = [
         ":encoder_main_lib",
         "//lyra:architecture_utils",
@@ -134,9 +135,10 @@ cc_binary(
     ],
     data = ["//lyra:tflite_testdata"],
     linkopts = select({
-        "//lyra:android_config": ["-landroid"],
+        "//lyra:android_config": [],
         "//conditions:default": [],
     }),
+     features = ["fully_static_link"],
     deps = [
         ":decoder_main_lib",
         "//lyra:architecture_utils",

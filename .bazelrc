@@ -30,7 +30,7 @@ build:android_arm64 --host_crosstool_top=@bazel_tools//tools/cpp:toolchain
 build:android_arm64 --linkopt=-lm
 build:android_arm64 --linkopt=-ldl
 build:android_arm64 --linkopt=-llog
-build:android_arm64 --linkopt=-landroid
+#build:android_arm64 --linkopt=-landroid
 build:android_arm64 --cxxopt=-std=gnu++17
 # This is required for using command line flags on android.
 # It could be removed for the APK targets, but making it default since
@@ -58,7 +58,7 @@ build:android_arm32 --host_crosstool_top=@bazel_tools//tools/cpp:toolchain
 build:android_arm32 --linkopt=-lm
 build:android_arm32 --linkopt=-ldl
 build:android_arm32 --linkopt=-llog
-build:android_arm32 --linkopt=-landroid
+#build:android_arm32 --linkopt=-landroid
 build:android_arm32 --cxxopt=-std=gnu++17
 # This is required for using command line flags on android.
 # It could be removed for the APK targets, but making it default since
