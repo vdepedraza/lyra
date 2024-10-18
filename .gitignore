@@ -1,1 +1,10 @@
 *~
+c_lib/bazel-bin/lyra/c_library/
+Android/*
+android-ndk-r21e/*
+lib/*
+bazel-out
+bazel-lyra_workspace
+bazel-testlogs
+bazel-lyra
+bazel-bin
