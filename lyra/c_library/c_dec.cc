@@ -6,8 +6,7 @@ namespace chromemedia {
 namespace codec {
 /// Lyra Decoder.
 extern "C" { 
-    
-    void* CreateDecoder(int sample_rate_hz, int num_channels, int bitrate, const char* model_path) {      
+    void* CreateDecoder(int sample_rate_hz, int num_channels, const char* model_path) {      
         std::unique_ptr<LyraDecoder> decoder = LyraDecoder::Create(sample_rate_hz, num_channels, model_path);        
         if (!decoder) {
           return nullptr; // Return nullptr if creation failed

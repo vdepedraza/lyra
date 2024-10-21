@@ -14,11 +14,10 @@ extern "C" {
 // Parameters:
 // - sample_rate_hz: Sample rate in Hz
 // - num_channels: Number of audio channels
-// - bitrate: Bitrate in kbps
 // - model_path: Path to the model file
 // Returns:
 // - A void pointer to the newly created decoder instance, or nullptr if creation failed
-void* CreateDecoder(int sample_rate_hz, int num_channels, int bitrate, const char* model_path);
+void* CreateDecoder(int sample_rate_hz, int num_channels, const char* model_path);
 
 // Function to delete a LyraDecoder instance
 // Parameters:
