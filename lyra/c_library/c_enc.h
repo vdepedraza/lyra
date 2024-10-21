@@ -42,7 +42,7 @@ int DeleteEncoder(void* encoder_ptr);
 ///              The return vector will be of length zero if discontinuous
 ///              transmission mode is enabled and the frame contains
 ///              background noise.
-bool Encode(void* encoderPTR, const int16_t* audioPTR, uint8_t* outputBuf, size_t audioLENGTH);
+int Encode(void* encoderPTR, const int16_t* audioPTR, uint8_t* outputBuf, size_t audioLENGTH);
 
 /// Setter for the bitrate.
 ///

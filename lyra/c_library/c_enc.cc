@@ -53,7 +53,7 @@ extern "C" {
   ///              The return vector will be of length zero if discontinuous
   ///              transmission mode is enabled and the frame contains
   ///              background noise.
-  bool Encode(void* encoderPTR, const int16_t* audioPTR, uint8_t* outputBuf, size_t audioLENGTH){ 
+  int Encode(void* encoderPTR, const int16_t* audioPTR, uint8_t* outputBuf, size_t audioLENGTH){ 
     chromemedia::codec::LyraEncoder* encoder = (chromemedia::codec::LyraEncoder*) encoderPTR;
     absl::Span<const int16_t> audio(audioPTR, audioLENGTH);
     std::optional<std::vector<uint8_t>> outVec = encoder->Encode(audio);
@@ -61,9 +61,9 @@ extern "C" {
         const std::vector<uint8_t>& vec = *outVec;
         // write outbuffer
         std::memcpy(outputBuf, vec.data(), vec.size());
-        return true;
+        return vec.size();
     } else {
-        return false;
+        return -1;
     }
   }
 
