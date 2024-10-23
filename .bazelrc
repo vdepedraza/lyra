@@ -77,6 +77,42 @@ build:android_arm32 --copt=-Os
 # androidx and more recent deps instead of deprecated ones.
 build:android_arm32 --strict_java_deps=OFF
 
+
+# Android x86
+build:android_x86 --cpu=x86
+build:android_x86 --fat_apk_cpu=x86
+build:android_x86 --crosstool_top=//external:android/crosstool
+build:android_x86 --host_crosstool_top=@bazel_tools//tools/cpp:toolchain
+build:android_x86 --linkopt=-lm
+build:android_x86 --linkopt=-ldl
+build:android_x86 --linkopt=-llog
+#build:android_x86 --linkopt=-landroid
+build:android_x86 --cxxopt=-std=gnu++17
+build:android_x86 --cxxopt=-DABSL_FLAGS_STRIP_NAMES=0
+build:android_x86 --copt=-g0
+build:android_x86 --copt=-Os
+build:android_x86 --strict_java_deps=OFF
+
+
+# Android x86_64
+build:android_x86_64 --cpu=x86_64
+build:android_x86_64 --fat_apk_cpu=x86_64
+build:android_x86_64 --crosstool_top=//external:android/crosstool
+build:android_x86_64 --host_crosstool_top=@bazel_tools//tools/cpp:toolchain
+build:android_x86_64 --linkopt=-lm
+build:android_x86_64 --linkopt=-ldl
+build:android_x86_64 --linkopt=-llog
+#build:android_x86_64 --linkopt=-landroid
+build:android_x86_64 --cxxopt=-std=gnu++17
+build:android_x86_64 --cxxopt=-DABSL_FLAGS_STRIP_NAMES=0
+build:android_x86_64 --copt=-g0
+build:android_x86_64 --copt=-Os
+build:android_x86_64 --strict_java_deps=OFF
+
+
+
+
+
 # Start Tensorflow
 # The below is to allow tensorflow to build.
 # Inspired by TensorFlow serving's .bazelrc to build from the source.

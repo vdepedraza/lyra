@@ -18,6 +18,14 @@ fi
 
 # Select configuration based on the parameter
 case "$1" in
+  x86)
+    ARCH="x86"
+    CONFIG="android_x86"
+    ;;
+  x86_64)
+    ARCH="x86_64"
+    CONFIG="android_x86_64"
+    ;;
   arm)
     ARCH="armeabi-v7a"
     CONFIG="android_arm32"
@@ -34,6 +42,7 @@ esac
 # remove libandroid_support
 # https://github.com/bazelbuild/bazel/issues/12840
 rm $WORKSPACE/Android/Sdk/ndk/21.4.7075529/sources/cxx-stl/llvm-libc++/libs/armeabi-v7a/libandroid_support.a
+rm $WORKSPACE/Android/Sdk/ndk/21.4.7075529/sources/cxx-stl/llvm-libc++/libs/x86/libandroid_support.a
 
 # Run Bazel build command with appropriate options
 bazel build -c opt lyra:lyra_benchmark \

@@ -49,7 +49,7 @@ from repository root:
 ## Compile benchmark
 docker run -it -v path_to_repository:/home/user/lyra bazel:5.3.2
 
-within docker: `./arm_build_benchmark.sh arm | arm64`
+within docker: `./android_build_benchmark.sh arm | arm64 | x86`
 
 output will be on: bazel-bin/lyra/lyra_benchmark
 
