@@ -45,10 +45,8 @@ rm $WORKSPACE/Android/Sdk/ndk/21.4.7075529/sources/cxx-stl/llvm-libc++/libs/arme
 rm $WORKSPACE/Android/Sdk/ndk/21.4.7075529/sources/cxx-stl/llvm-libc++/libs/x86/libandroid_support.a
 
 # Run Bazel build command with appropriate options
-bazel build -c opt lyra:lyra_benchmark \
-  --copt=-DBENCHMARK \
+bazel build -c opt lyra/cli_example:decoder_main \
   --config="$CONFIG" \
-  --define xnn_enable_assembly=false \
   --linkopt="-L${WORKSPACE}/android_liblog_dummy/lib/${ARCH}" \
 
 echo "Build completed for $ARCH"
