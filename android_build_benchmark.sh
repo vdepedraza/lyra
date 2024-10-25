@@ -48,7 +48,8 @@ rm $WORKSPACE/Android/Sdk/ndk/21.4.7075529/sources/cxx-stl/llvm-libc++/libs/x86/
 bazel build -c opt lyra:lyra_benchmark \
   --copt=-DBENCHMARK \
   --config="$CONFIG" \
-  --define xnn_enable_assembly=false \
-  --linkopt="-L${WORKSPACE}/android_liblog_dummy/lib/${ARCH}" \
+  --linkopt="-L${WORKSPACE}/android_liblog_dummy/lib/${ARCH}"
+#  --define xnn_enable_jit=false
+#  --define xnn_enable_assembly=false \
 
 echo "Build completed for $ARCH"

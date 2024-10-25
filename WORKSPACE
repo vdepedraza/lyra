@@ -178,7 +178,8 @@ git_repository(
     commit = "d5b57ca93e506df258271ea00fc29cf98383a374",
     shallow_since = "1668561432 -0800",
     patches = [
-        "@//patches:tensorflow_fix.patch" 
+        "@//patches:tensorflow_fix.patch",
+        "@//patches:change_XNNPACK.patch"
     ],
     patch_args = [
         "-p1",
